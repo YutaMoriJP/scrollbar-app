@@ -3,7 +3,7 @@ import React from "react";
 import Logger from "../Logger";
 import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 
-const Icon = ({ behavior = "smooth", block = "start" }) => {
+const Scroll = ({ behavior = "smooth", block = "start" }) => {
   const handleClick = () => document.body.scrollIntoView({ block, behavior });
   return (
     <>
@@ -19,4 +19,4 @@ const Icon = ({ behavior = "smooth", block = "start" }) => {
   );
 };
 
-export default Icon;
+export default Scroll;

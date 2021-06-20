@@ -1,5 +1,5 @@
 import "./styles.css";
-import Icon from "./Scroll/index";
+import Scroll from "./Scroll/index";
 import GlobalStyle from "./GlobalStyles";
 import CSSVariable from "./CssVariable/CSSVariable";
 import Logger from "./Logger";
@@ -19,8 +19,8 @@ export default function App() {
       <Stack />
       <Stack />
 
-      <Icon block="end" />
-      <Icon block="start" />
+      <Scroll block="end" />
+      <Scroll block="start" />
     </>
   );
 }
