@@ -3,6 +3,7 @@ import Logger from "../Logger";
 import Button from "../Button/Button";
 import { IconWrapper } from "../Button/styled";
 import { FaRegMoon as Moon, FaRegSun as Sun } from "react-icons/fa";
+import useLocalStorage, { getStorage } from "../useHooks/useLocalStorage";
 
 const icons = {
   light: <Sun color="orange" />,
@@ -25,13 +26,17 @@ const ThemeToggle = ({ children, theme, setTheme }) => {
 };
 
 const CSSVariable = () => {
-  const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = React.useState(() => {
+    const storedTheme = getStorage("themeMode");
+    return storedTheme === null ? "light" : storedTheme;
+  });
   const handleClick = theme => {
     setTheme(theme);
   };
   React.useLayoutEffect(() => {
     document.body.dataset.theme = theme;
   }, [theme]);
+  useLocalStorage("themeMode", theme);
   const mode = { light: "Dark", dark: "Light" }[theme];
   return (
     <>
